@@ -10,4 +10,6 @@ default:
 
 	rm -rf $(dist_path) && pnpm docs:build
 
+	git add . && git commit -m "update"
+
 	cd $(dist_path) && $(scp_command)
