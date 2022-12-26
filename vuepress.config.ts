@@ -18,7 +18,7 @@ export default defineUserConfig({
             '/guide/': [
                 {
                     text: '指南',
-                    children: ['/guide/README.md', '/guide/iter.md']
+                    children: ['/guide/README.md', '/guide/closure/', '/guide/iter.md']
                 }
             ]
         },
@@ -27,6 +27,16 @@ export default defineUserConfig({
             {
                 text: '指南',
                 link: '/guide/',
+                children: [
+                    {
+                        text: "闭包",
+                        link: '/guide/closure/'
+                    },
+                    {
+                        text: '迭代器',
+                        link: '/guide/iter/'
+                    }
+                ]
             },
             {
                 text: 'Rust官网',
