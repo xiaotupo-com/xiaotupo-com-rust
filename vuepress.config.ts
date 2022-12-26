@@ -7,7 +7,7 @@ export default defineUserConfig({
     description: '这是我的私人 Rust 笔记站点。',
     base: '/rust/',
     head: [
-        ['link', {rel: 'icon', href: '/images/xiaotupo-logo.svg'}]
+        ['link', {rel: 'icon', href: '/rust/images/xiaotupo-logo.svg'}]
     ],
     theme: defaultTheme({
         logo: '/images/xiaotupo-logo.svg',
