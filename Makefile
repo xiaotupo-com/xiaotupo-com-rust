@@ -12,3 +12,6 @@ default:
 
 	
 	cd $(dist_path) && $(scp_command)
+
+s:
+	pnpm docs:dev
