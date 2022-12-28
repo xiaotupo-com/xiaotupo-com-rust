@@ -18,7 +18,13 @@ export default defineUserConfig({
             '/guide/': [
                 {
                     text: '指南',
-                    children: ['/guide/README.md', '/guide/closure/', '/guide/iter.md']
+                    children: ['/guide/README.md', '/guide/closure/', '/guide/iter/', '/guide/serde/', '/guide/rand/', '/guide/regex/', '/guide/library/']
+                }
+            ],
+            '/examples/': [
+                {
+                    text: '例子',
+                    children: ['/examples/circle/']
                 }
             ]
         },
@@ -35,6 +41,31 @@ export default defineUserConfig({
                     {
                         text: '迭代器',
                         link: '/guide/iter/'
+                    },
+                    {
+                        text: '序列化和反序列化',
+                        link: '/guide/serde/'
+                    },
+                    {
+                        text: '随机数生成',
+                        link: '/guide/rand/'
+                    },
+                    {
+                        text: '正则表达式',
+                        link: '/guide/regex/'
+                    },
+                    {
+                        text: '常用开发库',
+                        link: '/guide/library/'
+                    }
+                ]
+            },
+            {
+                text: "Example",
+                children: [
+                    {
+                        text: "Circle例子",
+                        link: '/examples/circle/'
                     }
                 ]
             },
