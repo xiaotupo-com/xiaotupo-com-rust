@@ -18,7 +18,7 @@ export default defineUserConfig({
             '/guide/': [
                 {
                     text: '指南',
-                    children: ['/guide/README.md', '/guide/closure/', '/guide/iter/', '/guide/serde/', '/guide/rand/', '/guide/regex/', '/guide/library/']
+                    children: ['/guide/README.md', '/guide/closure/', '/guide/iter/', '/guide/serde/', '/guide/rand/', '/guide/regex/', '/guide/library/', '/guide/rust-tutorial-links/']
                 }
             ],
             '/examples/': [
@@ -57,6 +57,10 @@ export default defineUserConfig({
                     {
                         text: '常用开发库',
                         link: '/guide/library/'
+                    },
+                    {
+                        text: 'Rust 教程收藏',
+                        link: '/guide/rust-tutorial-links/'
                     }
                 ]
             },

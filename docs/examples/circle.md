@@ -37,7 +37,7 @@ pub enum CircleEnum {
     D(f64), // 直径
 }
 
-#[derive(Default)]
+#[derive(Default, Clone, Copy)]
 pub struct Circle {
     radius: f64,    // 半径
     area: f64,      // 面积
@@ -120,7 +120,11 @@ use crate::circle::core::{Circle, CircleEnum};
 fn main() {
     let mut c1: Circle = Default::default();
     c1.update(CircleEnum::A(12.5));
-    println!("{}", c1);
+    println!("{}", c1.clone());
 }
 
 ```
+
+## Github 仓库
+
+[rust-workspace-example](https://github.com/xiaotupo-com/rust-workspace-example)
