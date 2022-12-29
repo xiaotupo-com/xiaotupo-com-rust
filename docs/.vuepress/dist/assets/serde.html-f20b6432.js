@@ -1,0 +1,35 @@
+import{_ as n,p as s,q as a,a1 as e}from"./framework-96b046e1.js";const t={},p=e(`<h2 id="cargo-toml" tabindex="-1"><a class="header-anchor" href="#cargo-toml" aria-hidden="true">#</a> Cargo.toml</h2><div class="language-toml line-numbers-mode" data-ext="toml"><pre class="language-toml"><code><span class="token punctuation">[</span><span class="token table class-name">package</span><span class="token punctuation">]</span>
+<span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">&quot;hello&quot;</span>
+<span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;0.1.0&quot;</span>
+<span class="token key property">edition</span> <span class="token punctuation">=</span> <span class="token string">&quot;2021&quot;</span>
+
+<span class="token comment"># See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span>
+<span class="token key property">serde</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">&quot;1.0&quot;</span><span class="token punctuation">,</span> <span class="token key property">features</span> <span class="token punctuation">=</span> <span class="token punctuation">[</span><span class="token string">&quot;derive&quot;</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+<span class="token key property">serde_json</span> <span class="token punctuation">=</span> <span class="token string">&quot;1.0&quot;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="main-rs" tabindex="-1"><a class="header-anchor" href="#main-rs" aria-hidden="true">#</a> main.rs</h2><div class="language-rust line-numbers-mode" data-ext="rs"><pre class="language-rust"><code><span class="token keyword">use</span> <span class="token namespace">serde<span class="token punctuation">::</span></span><span class="token punctuation">{</span><span class="token class-name">Serialize</span><span class="token punctuation">,</span> <span class="token class-name">Deserialize</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token attribute attr-name">#[derive(Serialize, Deserialize, Debug)]</span>
+<span class="token keyword">struct</span> <span class="token type-definition class-name">Point</span> <span class="token punctuation">{</span>
+    x<span class="token punctuation">:</span> <span class="token keyword">i32</span><span class="token punctuation">,</span>
+    y<span class="token punctuation">:</span> <span class="token keyword">i32</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">&quot;----------------------&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> point <span class="token operator">=</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// 把 Rust 的 struct 转化成 json 字符串</span>
+    <span class="token keyword">let</span> serialized <span class="token operator">=</span> <span class="token namespace">serde_json<span class="token punctuation">::</span></span><span class="token function">to_string</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>point<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">&quot;serialized = {}&quot;</span><span class="token punctuation">,</span> serialized<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 将 json 字符串转换成 Rust 的 struct 对象</span>
+    <span class="token keyword">let</span> deserialized<span class="token punctuation">:</span> <span class="token class-name">Point</span> <span class="token operator">=</span> <span class="token namespace">serde_json<span class="token punctuation">::</span></span><span class="token function">from_str</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>serialized<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">unwrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">&quot;deserialized = {:?}&quot;</span><span class="token punctuation">,</span> deserialized<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,4),o=[p];function c(i,l){return s(),a("div",null,o)}const r=n(t,[["render",c],["__file","serde.html.vue"]]);export{r as default};
